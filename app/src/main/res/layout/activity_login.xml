@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.mvvvmsampleapp.viewModel.LoginActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="20dp"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:padding="20dp"
+                android:singleLine="true"
+                android:text="@={viewModel.email}" />
+
+            <EditText
+                android:id="@+id/password"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/email"
+                android:layout_centerVertical="true"
+                android:layout_margin="20dp"
+                android:hint="Enter Password"
+                android:padding="20dp"
+                android:text="@={viewModel.password}" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/password"
+                android:layout_centerInParent="true"
+                android:onClick="@{() -> viewModel.onLoginBtnClick()}"
+                android:text="Login"
+                android:textAllCaps="false" />
+        </RelativeLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
